@@ -1,0 +1,127 @@
+@import url('https://fonts.googleapis.com/css2?family=Work+Sans:ital,wght@0,100..900;1,100..900&display=swap');
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  min-height: 100vh;
+  font-family: 'Work Sans', sans-serif;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 5rem;
+  background-image: url(assets/images/background-pattern-desktop.svg);
+  background-repeat: no-repeat;
+  background-color: hsl(275, 100%, 97%);
+}
+
+main {
+  width: 100%;
+  max-width: 600px;
+  background-color: white;
+  border-radius: 10px;
+  padding: 30px;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+  color: hsl(292, 42%, 14%);
+}
+
+.header {
+  display: flex;
+  gap: 1rem;
+}
+
+.header > h1 {
+  font-size: 2.5rem;
+}
+
+.header > img {
+  width: 24px;
+}
+
+.question-tittle {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid hsla(293, 16%, 49%, 0.3);
+  padding: 10px;
+  margin-top: 10px;
+
+  transition: border-color 0.3s ease;
+}
+
+.question.active .question-tittle {
+  border-color: transparent; /* dispare linia când este activ */
+}
+
+.question-tittle > h5 {
+  font-weight: 700;
+  font-size: 1rem;
+}
+
+.question-btn {
+  background: none;
+  border: none;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  width: 40px; /* opțional, ca să fie pătrat */
+  height: 40px; /* opțional, pentru centrul vertical */
+}
+
+/* ================= TEXT ================= */
+.question-text {
+  padding-left: 10px;
+  max-height: 0;
+  opacity: 0;
+  overflow: hidden;
+  transition: max-height 0.4s ease, opacity 0.4s ease;
+  color: hsla(292, 42%, 14%, 0.712);
+  font-family: inherit;
+  font-weight: 400;
+}
+
+.question.active .question-text {
+  max-height: 200px; /* suficient pentru cel mai lung text */
+  opacity: 1;
+}
+
+/* ================= ICONS ================= */
+.plus-icon,
+.minus-icon {
+  display: inline-block;
+  transition: transform 0.3s ease, opacity 0.3s ease;
+  position: absolute; /* stau una peste alta */
+  top: 0;
+  left: 0;
+}
+
+.minus-icon {
+  opacity: 0;
+  transform: rotate(90deg);
+}
+
+.question.active .plus-icon {
+  opacity: 0;
+  transform: rotate(-90deg);
+}
+
+.question.active .minus-icon {
+  opacity: 1;
+  transform: rotate(0deg);
+}
+
+/* ================= SECTIONS ================= */
+.section-cards {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
